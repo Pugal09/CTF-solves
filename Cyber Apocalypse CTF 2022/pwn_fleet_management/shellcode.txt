@@ -1,0 +1,11 @@
+mov rax, 257
+mov rdi, -100
+mov rdx, 0x0000000000007478
+push rdx
+mov rdx, 0x742e67616c662f2e
+push rdx
+mov rsi , rsp
+xor rdx, rdx
+xor rcx, rcx
+syscall
+

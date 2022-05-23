@@ -1,0 +1,7 @@
+from pwn import *
+
+r = remote("46.101.30.188" ,32299)
+#r = process("./vault-breaker_patched")
+r.recv()
+r.recv()
+print(r.recv())

